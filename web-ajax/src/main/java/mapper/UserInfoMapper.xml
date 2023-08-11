@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!DOCTYPE mapper
+    PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+    "https://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.web.mapper.UserInfoMapper">
+	<select id="selectUserInfoList"
+		resultType="com.web.vo.UserInfoVO">
+		select * from user_info
+	</select>
+
+	<select id="selectUserInfo" resultType="com.web.vo.UserInfoVO">
+		select * from user_info
+		where ui_num=#{uiNum}
+	</select>
+
+	<insert id="insertUserInfo"
+		parameterType="com.web.vo.UserInfoVO">
+		insert into user_info(
+		UI_NAME, UI_ID, UI_PWD,
+		UI_IMG_PATH,
+		UI_DESC, UI_BIRTH, CREDAT, CRETIM,
+		LMODAT, LMOTIM, ACTIVE)
+		VALUES (
+		#{uiName}, #{uiId}, #{uiPwd}, #{uiImgPath},
+		#{uiDesc},
+		#{uiBirth}, date_format(now(), '%Y%m%d'), date_format(now(),
+		'%H%i%s'),
+		date_format(now(), '%Y%m%d'), date_format(now(), '%H%i%s'),
+		#{active}
+		)
+	</insert>
+
+	<update id="updateUserInfo"
+		parameterType="com.web.vo.UserInfoVO">
+		update user_info
+		set UI_NAME=#{uiName},
+		UI_PWD=#{uiPwd},
+		UI_IMG_PATH=#{uiImgPath},
+		UI_DESC=#{uiDesc},
+		UI_BIRTH=#{uiBirth},
+		LMODAT=date_format(now(), '%Y%m%d'),
+		LMOTIM=date_format(now(),'%H%i%s'),
+		ACTIVE=#{active}
+		WHERE ui_num=#{uiNum}
+	</update>
+
+	<delete id="deleteUserInfo"
+		parameterType="com.web.vo.UserInfoVO">
+		delete from user_info where ui_num=#{uiNum}
+	</delete>
+
+</mapper>
