@@ -30,6 +30,10 @@ public class UserInfoServiceImpl implements UserInfoService {
 	@Override
 	public int insertUserInfo(UserInfoVO user) {
 		try (SqlSession session = MybatisConfig.getSqlSessionFactory().openSession()) {
+//			try {
+//				int result = uiDAO.insertUserInfo(session, user);
+//				session.get
+//			}
 			return uiDAO.insertUserInfo(session, user);
 		}
 	}

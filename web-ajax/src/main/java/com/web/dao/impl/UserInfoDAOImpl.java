@@ -42,17 +42,17 @@ public class UserInfoDAOImpl implements UserInfoDAO {
 			for (UserInfoVO user : userList) {
 				System.out.println(user);
 			}
-			UserInfoVO user = uiDAO.selectUserInfo(session, 8);
-			System.out.println("select one: " + user);
+//			UserInfoVO user = uiDAO.selectUserInfo(session, 8);
+//			System.out.println("select one: " + user);
 //			user.setUiId("bao");
 //			int result = uiDAO.insertUserInfo(session, user);
 //			System.out.println("insert: " + result);
-			user.setUiName("휴지씨");
-			int result = uiDAO.updateUserInfo(session, user);
-			System.out.println("update: " + result);
-			result = uiDAO.deleteUserInfo(session, 13);
-			System.out.println("delete: " + result);
-			session.commit();
+//			user.setUiName("휴지씨");
+//			int result = uiDAO.updateUserInfo(session, user);
+//			System.out.println("update: " + result);
+//			result = uiDAO.deleteUserInfo(session, 13);
+//			System.out.println("delete: " + result);
+//			session.commit();
 		}
 	}
 
